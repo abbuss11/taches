@@ -1,2 +1,7 @@
 # taches
-gestion des taches en php
+gestionnaire des taches.
+
+- ajouter des tâches
+- suppression 
+- marquage 
+
