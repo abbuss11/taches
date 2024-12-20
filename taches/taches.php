@@ -33,7 +33,7 @@ if (isset($_GET['delete'])) {
     $stmt->execute(['id' => $task_id, 'user_id' => $user_id]);
 }
 
-// Récupérer les tâches
+//
 $sql = "SELECT * FROM taches WHERE user_id = :user_id";
 $stmt = $pdo->prepare($sql);
 $stmt->execute(['user_id' => $user_id]);
