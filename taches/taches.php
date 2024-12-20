@@ -9,7 +9,7 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-// Ajout d'une tâche
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_task'])) {
     $title = $_POST['title'];
     $sql = "INSERT INTO taches (user_id, titre) VALUES (:user_id, :title)";
@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_task'])) {
     $stmt->execute(['user_id' => $user_id, 'title' => $title]);
 }
 
-// Marquer une tâche comme terminée
+
 if (isset($_GET['complete'])) {
     $task_id = $_GET['complete'];
     $sql = "UPDATE taches SET completer = TRUE WHERE id = :id AND user_id = :user_id";
@@ -25,7 +25,7 @@ if (isset($_GET['complete'])) {
     $stmt->execute(['id' => $task_id, 'user_id' => $user_id]);
 }
 
-// Suppression d'une tâche
+
 if (isset($_GET['delete'])) {
     $task_id = $_GET['delete'];
     $sql = "DELETE FROM taches WHERE id = :id AND user_id = :user_id";
